@@ -1,3 +1,6 @@
+// Copyright (C) 2026 Silvet.icu
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 #include <torch/extension.h>
 #include <ATen/cuda/CUDAContext.h>
 #include <c10/cuda/CUDAGuard.h>

@@ -1,3 +1,6 @@
+# Copyright (C) 2026 Silvet.icu
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 """Scaled fp16 tensor-core GEMM for bf16/fp32 activations and bf16/fp32/fp8 weights.
 
     linear(x, w, bias=None)          # output dtype follows x

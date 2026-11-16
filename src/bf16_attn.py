@@ -1,3 +1,6 @@
+# Copyright (C) 2026 Silvet.icu
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 """Route attention to the memory-efficient backend (bf16 has no kernel on sm_70).
 
 Usage:
