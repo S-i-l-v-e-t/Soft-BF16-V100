@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Built extensions and build leftovers
+*.so
+*.o
+*.d
+build/
+dist/
+torch_extensions/
+
+# Run artifacts: logs, sweeps, images, tensors
+*.pt
+*.png
+*.log
+*.csv
+src/data/
+src/results/
+
+# Not part of the published core: tests, benches, tools, docs, working notes
+src/tests/
+src/benches/
+src/tools/
+src/docs/
+src/reference/
+src/README.md
+src/run_nightly.sh
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Legacy baseline: replaced by the scaled-fp16 kernels, kept locally only
+src/softbf16.py
+src/kernels/softbf16_cuda.cu
+src/scaled_attn.py
+src/rowcol_scaled_gemm.py
+src/kernels/rowcol_scaled_gemm.cu
+
+# Research only: self-written fused attention, slower than the EFFICIENT backend
+# (14.48 ms vs 4.62 ms at S=4096), nothing imports it
+src/bf16_attn_fused.py
+src/kernels/attention_bf16.cu
