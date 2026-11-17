@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "softbf16"
+version = "0.1.0"
+description = "Scaled fp16 tensor core GEMM and attention for bf16 models on pre-Ampere GPUs"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+dependencies = ["torch"]
+
+# The modules stay top-level so the kernel sources resolve next to them
+# (bf16_online reads kernels/ relative to __file__). Install editable: the .cu
+# files are compiled from the source tree, not from site-packages.
+[tool.setuptools]
+package-dir = { "" = "src" }
+py-modules = [
+    "bf16_online",
+    "bf16_attn",
+]
