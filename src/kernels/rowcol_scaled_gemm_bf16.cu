@@ -13,7 +13,6 @@
 #include <vector>
 
 // bf2f / pow2_scale are shared with the attention kernel.
-// See docs/gemm-kernel.md.
 #include "scaled_common.cuh"
 
 // Only e4m3 is wired up; e5m2 has 3 mantissa bits and no such exact widening.

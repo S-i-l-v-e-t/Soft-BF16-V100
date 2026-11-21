@@ -7,8 +7,6 @@ Usage:
     bf16_attn.install()  /  bf16_attn.uninstall()
     out = bf16_attn.attention(q, k, v, scale=None, is_causal=False)
     bf16_attn.set_mode('fp16_scaled' | 'fp32' | 'fp16')
-
-See docs/attention.md.
 """
 import math
 
@@ -47,7 +45,7 @@ def _pow2_scale(mx):
     return 2.0 ** math.floor(math.log2(2048.0 / mx))
 
 
-# Fallback threshold: ratio beyond which entries vanish in fp16 (see docs/attention.md).
+# Fallback threshold: ratio beyond which entries vanish in fp16.
 _MAX_SAFE_RATIO = 2.0 ** 38
 _fallbacks = 0
 
@@ -108,8 +106,7 @@ def attention(query, key, value, *args, **kwargs):
         return out.to(dt)
 
     # 'fp16_scaled': per-tensor power-of-two scale, folded into the softmax scale
-    # for q/k and undone on the output for v. Falls back to fp32 when a tensor's
-    # range does not survive fp16 (see docs/attention.md).
+    # for q/k and undone on the output for v.
     global _fallbacks
     pairs = [_range(t) for t in (query, key, value)]
     extremes = torch.stack([v for pair in pairs for v in pair]).tolist()   # one sync

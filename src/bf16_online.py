@@ -6,8 +6,6 @@
     linear(x, w, bias=None)          # output dtype follows x
     matmul_bt(x, w, bias=None)       # same, explicit weight form [out, in]
     bmm(a, b, out_fp32=False)        # torch.bmm layout, inference only when out_fp32
-
-See docs/gemm-kernel.md and docs/io-dtypes.md.
 """
 import os
 from pathlib import Path
@@ -75,7 +73,7 @@ _ALIGN = 8
 # Above _SCRATCH_LIMIT the output is produced in row blocks of _SCRATCH_BYTES
 _SCRATCH_BYTES = 128 << 20
 _SCRATCH_LIMIT = 256 << 20
-# crossover vs the fp32 bypass (see docs/gemm-kernel.md)
+# fp32 bypass crossover
 _MIN_VOLUME = 2e9
 _MIN_VOLUME_BATCH = 8e8
 # above this slice volume, per-slice cuBLAS calls beat the batched one

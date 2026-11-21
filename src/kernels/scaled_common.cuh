@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 //
 // Shared by rowcol_scaled_gemm_bf16.cu and attention_bf16.cu.
-// See docs/gemm-kernel.md.
 #pragma once
 
 #include <cuda_fp16.h>
