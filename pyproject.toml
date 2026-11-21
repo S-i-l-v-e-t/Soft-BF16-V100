@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "softbf16"
-version = "0.1.0"
-description = "Scaled fp16 tensor core GEMM and attention for bf16 models on pre-Ampere GPUs"
+version = "0.2.0"
+description = "Scaled fp16 tensor core GEMM, attention and convolution for bf16 models on pre-Ampere GPUs"
 requires-python = ">=3.10"
 license = { file = "LICENSE" }
 dependencies = ["torch"]
@@ -18,4 +18,5 @@ package-dir = { "" = "src" }
 py-modules = [
     "bf16_online",
     "bf16_attn",
+    "bf16_conv",
 ]
